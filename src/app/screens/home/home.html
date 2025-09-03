@@ -1,0 +1,48 @@
+<div class="wrap">
+  <h2>ამინდის პროგნოზი</h2>
+
+<select id="city"
+        name="city"
+        [ngModel]="selectedId()"
+        (ngModelChange)="onSelectChange($event)">
+  <option *ngFor="let c of cityOptions" [value]="c.id">
+    {{ c.label }}
+  </option>
+</select>
+
+
+
+
+  <div *ngIf="loading()" class="loading">იტვირთება…</div>
+  <div *ngIf="error()" class="error">{{ error() }}</div>
+
+  <ng-container *ngIf="!loading() && !error()">
+    <!-- დღეს -->
+    <div class="today" *ngIf="current() as cur">
+      <div class="left">
+        <h3>დღეს — {{ selectedCityUi() }}</h3>
+        <div class="temp">{{ cur.temp | number:'1.0-0' }}°C</div>
+        <div class="desc">{{ cur.weather[0]?.description }}</div>
+        <div class="meta">
+          ქარი: {{ cur.wind_speed }} მ/წმ • ტენიანობა: {{ cur.humidity }}%
+        </div>
+      </div>
+      <img class="icon" [src]="iconUrl(cur.weather[0]?.icon)" alt="">
+    </div>
+
+    <!-- 7 დღე -->
+    <h4 class="week-title">კვირის პროგნოზი</h4>
+    <div class="grid">
+      <div class="card" *ngFor="let d of daily(); trackBy: trackByIdx">
+        <div class="day">{{ asDate(d.dt) | date:'EEEE, d MMM' }}</div>
+        <img class="icon" [src]="iconUrl(d.weather[0].icon)" alt="">
+        <div class="desc">{{ d.weather[0].description }}</div>
+        <div class="temps">
+          <span class="tmax">მაქს: {{ d.temp.max | number:'1.0-0' }}°</span>
+          <span class="tmin">მინ: {{ d.temp.min | number:'1.0-0' }}°</span>
+        </div>
+        <div class="meta small">ქარი: {{ d.wind_speed }} • ტენიანობა: {{ d.humidity }}%</div>
+      </div>
+    </div>
+  </ng-container>
+</div>

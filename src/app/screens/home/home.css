@@ -1,0 +1,119 @@
+.wrap {
+    max-width: 860px;
+    margin: 24px auto;
+    padding: 0 12px
+}
+
+h2 {
+    margin: 0 0 12px;
+    font-weight: 800
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px
+}
+
+select {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd
+}
+
+.loading {
+    padding: 16px
+}
+
+.error {
+    padding: 12px;
+    background: #ffe6e6;
+    border: 1px solid #ffb3b3;
+    border-radius: 10px
+}
+
+.today {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #f7f7f7, #60b7f2);
+    margin: 12px 0 18px
+}
+
+.today .temp {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1
+}
+
+.today .desc {
+    text-transform: capitalize;
+    margin-top: 4px
+}
+
+.today .meta {
+    margin-top: 6px;
+    color: #666
+}
+
+.today .icon {
+    width: 88px;
+    height: 88px
+}
+
+.week-title {
+    margin: 6px 0 10px;
+    font-weight: 700
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 12px
+}
+
+.card {
+    padding: 14px;
+    border-radius: 16px;
+    background: #60b7f2;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center
+}
+
+.card .day {
+    font-weight: 700;
+    margin-bottom: 6px
+}
+
+.card .desc {
+    text-transform: capitalize;
+    margin: 2px 0 8px;
+    min-height: 38px
+}
+
+.card .temps {
+    display: flex;
+    gap: 10px;
+    font-weight: 700
+}
+
+.card .temps .tmin {
+    color: #555
+}
+
+.card .meta.small {
+    margin-top: 8px;
+    color: #666;
+    font-size: 12px
+}
+
+.card .icon {
+    width: 64px;
+    height: 64px
+}
